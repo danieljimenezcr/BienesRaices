@@ -19,5 +19,8 @@
     "gulp-terser": "^2.1.0",
     "sass": "^1.75.0",
     "sharp": "^0.33.3"
+  },
+  "dependencies": {
+    "nuxt": "^3.12.3"
   }
 }

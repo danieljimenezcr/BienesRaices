@@ -1,33 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienes y Raices</title>
-    <link rel="stylesheet" href="build/css/app.css">
-</head>
-<body>
-    <header class="header">
-        <div class="contenedor contenido-header">
-            <div class="barra">
-                <a href="/">
-                    <img src="build/img/logo.svg" alt="logotipo de Bienes y Raices">
-                </a>
-                <div class="mobile-menu">
-                    <img src="build/img/barras.svg" alt="Icono Menu Responsive">
-                </div>
-                <div class="derecha">
-                    <img class="dark-mode-boton" src="build/img/dark-mode.svg" alt="Boton de Modo Oscuro">
-                    <nav class="navegacion">
-                        <a href="nosotros.html">Nosotros</a>
-                        <a href="anuncios.html">Anuncios</a>
-                        <a href="blog.html">Blog</a>
-                        <a href="contacto.html">Contacto</a>
-                    </nav>
-                </div>
-            </div> <!--Cierre de Barra-->
-        </div>
-    </header>
+<?php include 'includes/templates/header.php' ?>
     <main class="contenedor">
         <h1 class="seccion">Conoce sobre Nosotros</h1>
         <div class="contenido-nosotros">
@@ -69,18 +40,4 @@
         </div>
     </section>
     
-    <footer class="footer seccion">
-        <div class="contenedor contenedor-footer">
-            <nav class="navegacion">
-                <a href="nosotros.html">Nosotros</a>
-                <a href="anuncios.html">Anuncios</a>
-                <a href="blog.html">Blog</a>
-                <a href="contacto.html">Contacto</a>
-            </nav>
-        </div>
-        <p class="copyright">Todos los derechos Reservados 2024 &copy;</p>
-    </footer>
-    
-    <script src="build/js/bundle.min.js" ></script>
-</body>
-</html>
+    <?php include 'includes/templates/footer.php'?>
