@@ -1,4 +1,7 @@
-<?php include 'includes/templates/header.php' ?>
+<?php 
+    require 'includes/funciones.php';
+    includeTemplate('header');
+?>
     <main class="contenedor">
         <h1 class="seccion">Conoce sobre Nosotros</h1>
         <div class="contenido-nosotros">
@@ -40,4 +43,4 @@
         </div>
     </section>
     
-    <?php include 'includes/templates/footer.php'?>
+    <?php includeTemplate('footer');?>
