@@ -4,6 +4,11 @@
 
     require '../../includes/config/database.php';
     $db = conectarDB();
+
+    //Consultar para obtener vendedores
+    $consulta = "SELECT * FROM vendedor";
+    $resultado = mysqli_query($db, $consulta);
+
     //Arreglo con mensajes de errores errores
     $errores = [];
 
@@ -14,6 +19,7 @@
     $wc = '';
     $estacionamiento = '';
     $vendedor_id = '';
+    $creado = date('Y/m/d');
 
     //
     if ($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -54,14 +60,16 @@
         // Valida que no hayan errores e inserta la consulta
         if(empty($errores)) {
         //Insertar en la base de datos
-        $query = " INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, wc, estacionamiento, vendedor_id) VALUES( '$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$vendedor_id' ) ";
+        $query = " INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, wc, estacionamiento, creado, vendedor_id) VALUES( '$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado', '$vendedor_id' ) ";
 
         //echo $query;
 
         $resultado = mysqli_query($db, $query);
 
         if($resultado)  {
-            echo "Insertado Correctamente";
+            // Redireccionar al usuario al insertar datos
+
+            header('location: /admin');
         }
         }
 
@@ -120,8 +128,10 @@
                 <legend>Vendedor</legend>
                 <select name="vendedor">
                     <option value="" >Selecciona el Vendedor</option>
-                    <option value="1">Jacinto</option>
-                    <option value="2">Daniel</option>
+                    <?php while($vendedor = mysqli_fetch_assoc($resultado)):?>;
+                        <option <?php echo $vendedor_id === $vendedor['id'] ? 'selected' : ''; ?> value="<?php echo $vendedor['id']; ?>"> <?php echo $vendedor['nombre'] . " " . $vendedor['apellido']; ?> </option>
+                    <?php endwhile; ?>
+
                </select>
             </fieldset>
 
