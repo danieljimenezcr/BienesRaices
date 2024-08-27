@@ -66,16 +66,9 @@
             $errores[] = 'El tamaño de la imagen es muy grande';
         }
 
-        // echo "<pre>";
-        // var_dump($errores);
-        // echo "</pre>";
-
         // Valida que no hayan errores e inserta la consulta
         if(empty($errores)) {
-        // Subida de Archivos
-            
-
-
+    
         //Crear una carpeta
         $carpetaImagenes = '../../imagenes/';
         
@@ -86,6 +79,7 @@
         //Generar nombre unico para imagenes
         $nombreImagen = md5( uniqid(rand(), true)) . ".jpg";
 
+        //Subir la imagen
         move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . "$nombreImagen");
  
 
@@ -99,7 +93,7 @@
             if($resultado)  {
                 // Redireccionar al usuario al insertar datos
 
-                header('location: /admin');
+                header('location: /admin?resultado=1');
             }
         }
 
