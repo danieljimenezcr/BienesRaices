@@ -1,5 +1,10 @@
 <?php 
+    require '../../includes/funciones.php'; 
+    $auth = estaAutenticado();
 
+    if(!$auth) {
+        header('Location: /');
+    }
     //Base de datos
 
     require '../../includes/config/database.php';
@@ -101,7 +106,6 @@
     
     }
 
-    require '../../includes/funciones.php';
     includeTemplate('header');
 ?>
     <main class="contenedor seccion">

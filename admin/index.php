@@ -1,5 +1,10 @@
 <?php 
-  
+    require '../includes/funciones.php'; 
+    $auth = estaAutenticado();
+
+    if(!$auth) {
+        header('Location: /');
+    }
 
     //Importar la Conexion
     require '../includes/config/database.php';
@@ -20,7 +25,7 @@
 
         if($id){
             // Elimina el Archivo
-            $query = "SELECT imagen FROM propiedades WHERE id = ${id}";
+            $query = "SELECT imagen FROM propiedades WHERE id = {$id}";
             
             $resultado = mysqli_query($db, $query);
             $propiedad = mysqli_fetch_assoc($resultado);
@@ -39,7 +44,7 @@
     }
 
 
-    require '../includes/funciones.php';
+    
     includeTemplate('header');
 ?>
     <main class="contenedor seccion">

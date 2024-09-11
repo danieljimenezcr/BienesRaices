@@ -1,4 +1,11 @@
 <?php 
+    require '../../includes/funciones.php'; 
+    $auth = estaAutenticado();
+
+    if(!$auth) {
+        header('Location: /');
+    }
+
 
     //Validar que el ID sea valido
     $id = $_GET['id'];
@@ -16,7 +23,7 @@
     $db = conectarDB();
 
     //Obtener los datos de la propiedad
-    $consulta = "SELECT * from propiedades WHERE id = ${id}";
+    $consulta = "SELECT * from propiedades WHERE id = {$id}";
     $resultado = mysqli_query($db, $consulta);
     $propiedad = mysqli_fetch_assoc($resultado);
 
@@ -131,7 +138,7 @@
     
     }
 
-    require '../../includes/funciones.php';
+    
     includeTemplate('header');
 ?>
     <main class="contenedor seccion">
